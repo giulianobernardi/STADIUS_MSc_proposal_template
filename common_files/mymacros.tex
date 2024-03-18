@@ -1,0 +1,120 @@
+% Expected value
+\newcommand{\Exp}[1]{
+    \mathbb{E} \{ #1 \}
+}
+% Covariance
+\newcommand{\Cov}[1]{
+    \mathrm{Cov} \{ #1 \}
+}
+
+\newcommand{\mycb}[1]{
+    \left\{ #1 \right\}
+}
+\newcommand{\mysb}[1]{
+    \left[ #1 \right]
+}
+\newcommand{\myrb}[1]{
+    \left( #1 \right)
+}
+\newcommand{\myab}[1]{
+    \left\vert #1 \right\vert
+}
+
+% Projection and DFT matrix
+\newcommand{\myF}{\vect{F}_\mathrm{M}}
+\newcommand{\myFinv}{\myF^{-1}}
+\newcommand{\myQ}{\vect{Q}}
+\newcommand{\myQt}{\myQ^\mathrm{T}}
+\newcommand{\myG}{\myF\myQ\myQt\myFinv}
+\newcommand{\myGpref}{\myF\myQ_{\mypref{n}}\myQt_{\mypref{n}}\myFinv}
+
+
+
+
+% Error signal
+\newcommand{\myerrsig}{d}
+% White excitation
+\newcommand{\myexcsig}{e}
+
+% Prefiltered quantities
+\newcommand{\mypref}[1]{
+    #1_{h}
+}
+
+% Vector notation (works for both greek and latin letters)
+\newcommand{\vect}[1]{\boldsymbol{\mathbf{#1}}}
+
+% Prediction error signal TD
+\newcommand{\myprederrsigTD}{\varepsilon}
+%{\mypref{\myerrsig}}
+
+% Prediction error signal FD
+\newcommand{\myprederrsigFD}{\mathcal{E}}
+
+% ********************************************************************
+% Acronym with capital letter at the beginning of a sentence
+%*******************************************************
+\makeatletter
+\newif\ifAC@uppercase@first
+\def\Aclp#1{\AC@uppercase@firsttrue\aclp{#1}\AC@uppercase@firstfalse}
+\def\AC@aclp#1{%
+  \ifcsname fn@#1@PL\endcsname
+    \ifAC@uppercase@first
+      \expandafter\expandafter\expandafter\MakeUppercase\csname fn@#1@PL\endcsname
+    \else
+      \csname fn@#1@PL\endcsname
+    \fi
+  \else
+    \AC@acl{#1}s
+  \fi
+}
+\edef\AC@uppercase@write{\string\ifAC@uppercase@first\string\expandafter\string\MakeUppercase\string\fi\space}
+
+\def\AC@acrodef#1[#2]#3{%
+  \@bsphack
+  \protected@write\@auxout{}{%
+    \string\newacro{#1}[#2]{\AC@uppercase@write #3}%
+  }\@esphack
+}
+\def\Acl#1{\AC@uppercase@firsttrue\acl{#1}\AC@uppercase@firstfalse}
+\makeatother
+
+
+
+% ********************************************************************
+% KU Colors
+%*******************************************************
+\definecolor{KUlb}{rgb}{0.5255,0.7373,0.8980}
+\definecolor{KUdb}{rgb}{0.0000,0.2510,0.4784}
+\definecolor{KUt1}{rgb}{0.0667,0.4314,0.5412}
+\definecolor{KUt2}{rgb}{0.1137,0.5529,0.6902}
+\definecolor{KUt3}{rgb}{0.0784,0.4627,0.5804}
+
+% Externalize to png
+\tikzset{
+    png export/.style={
+        external/system call={
+            pdflatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource" &&
+            convert -density 300 -transparent white "\image.pdf" "\image.png"
+        }
+    }
+}
+
+\newcommand{\pngext}[1]{
+     \bgroup
+    % Force the remake
+    %\tikzset{external/force remake}
+    % Call the exportation in png
+    \tikzset{png export}
+    #1
+    \egroup
+
+}
+
+\newcommand{\cf}{cf.}
+\newcommand{\ie}{i.\,e.}
+\newcommand{\Ie}{I.\,e.}
+\newcommand{\eg}{e.\,g.}
+\newcommand{\Eg}{E.\,g.}
+\newcommand{\etAl}{et al.\xspace}
+

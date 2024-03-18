@@ -1,0 +1,169 @@
+\documentclass[10pt,a4paper,oneside,openright,notitlepage,fleqn,
+              cleardoubleempty,abstracton,pointlessnumbers,%
+               headinclude,footinclude,BCOR5mm,%
+               tablecaptionabove]{scrartcl}
+\usepackage{etex}
+
+
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+
+%\frenchspacing
+\usepackage{pstool}
+\usepackage{pstricks}
+\usepackage{pst-pdf}
+\usepackage[update]{epstopdf} % Usable both with graphicx AND pstool
+%\usepackage[round,authoryear]{natbib}
+\usepackage[fleqn]{amsmath} % math environments and more by the AMS
+\usepackage[american]{babel}
+\usepackage[latin1,applemac]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{srcltx}
+\usepackage{trsym}
+\usepackage{nomencl}
+\usepackage{amsbsy}
+%\usepackage{mathabx} % \Asterisk symbol
+\usepackage{wasysym} % \Circle symbol
+\usepackage{multirow}
+\usepackage{nomencl}
+\usepackage{amsbsy}
+\usepackage{empheq}
+\usepackage{booktabs}                              %pacchetto per le tabelle extra
+\usepackage{caption}
+\usepackage{multicol}
+
+
+%\usepackage{classicthesis-ldpkg}  % Windows
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\usepackage{tikz}						%inline graphics
+\usetikzlibrary{plotmarks,dsp,chains,calc,shapes.geometric,pgfplots.groupplots} % External checks whether updating the figures or not
+\usetikzlibrary{external}
+\tikzexternalize[prefix=gfxExt/]    % Updated figures are in this directory
+
+\usepackage{ctable}
+
+\usepackage[backref]{./template/classicthesis-ldpkg}   % Unix
+\usepackage[eulerchapternumbers,subfig,beramono,%
+            pdfspacing,nochapters]{classicthesis}
+\usepackage{arsclassica}
+
+% ********************************************************************
+% titlepage-settings
+% ********************************************************************
+
+
+\newcommand{\myName}{Giuliano Bernardi (00.B.54)}
+\newcommand{\myNumber}{u$0090468$}
+\newcommand{\myTitle}{This is the nice title of my thesis proposal}
+\newcommand{\mySubTitle}{MSc Proposal}
+\newcommand{\myLocation}{Kasteelpark Arenberg 10, Leuven  B-3001}
+\newcommand{\myMATLABv}{\textsc{matlab}\textsuperscript{\textregistered} 7.12.0 (R2012b)}
+\newcommand{\myGroup}{ESAT-STADIUS}
+\newcommand{\myUrl}{\mail{giuliano.bernardi@esat.kuleuven.be}}
+\newcommand{\myAA}{2013-2014}
+\newcommand{\myTime}{\today}
+\newcommand{\myPromotor}{Marc Moonen}
+\newcommand{\myCoPromotor}{Toon van Waterschoot}
+\newcommand{\mySupervisors}{Giuliano Bernardi}
+\newcommand{\myNumberOfStudent}{1-2}
+\newcommand{\myWorkload}{Literature:40\%, Implementation:30\%, Validation:30\%}
+
+% ********************************************************************
+%
+% ********************************************************************
+
+
+
+\input{./template/arsclassica-settings.tex}
+\usepackage{subfloat}
+\usepackage{gensymb}
+\usepackage{fourier}
+%\usepackage{paracol}
+\usepackage{enumerate}
+\usepackage{cleveref}
+
+\usepackage[numbered,autolinebreaks,useliterate]{./template/mcode}
+\usepackage{algorithmic}
+\usepackage[Algoritmo]{algorithm}
+
+\newcommand{\myfloatalign}{\centering} % how all the floats will be aligned
+%\newcommand{\myline}{\color{KUdb}{\linethickness{.1mm}\line(1,0){100}}\color{black}}
+\newcommand{\myline}{\linethickness{.1mm}\line(1,0){105}}
+
+% ********************************************************************
+% KU Colors
+%*******************************************************
+\definecolor{KUlb}{rgb}{0.5255,0.7373,0.8980}
+\definecolor{KUdb}{rgb}{0.0000,0.2510,0.4784}
+\definecolor{KUt1}{rgb}{0.0667,0.4314,0.5412}
+\definecolor{KUt2}{rgb}{0.1137,0.5529,0.6902}
+\definecolor{KUt3}{rgb}{0.0784,0.4627,0.5804}
+
+\newcommand{\fwidth}{0.9\textwidth}
+\newcommand{\fheight}{5cm}
+% ********************************************************************
+% Math commands
+%*******************************************************
+\newcommand{\Exp}[1]{
+    \mathbb{E}\left\{ #1 \right\}
+}
+
+\newcommand{\cf}{cf.}
+
+% ********************************************************************
+% Hyperreferences
+%*******************************************************
+\hypersetup{
+    colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
+    % uncomment the following line if you want to have black links (e.g., for printing)
+    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,%
+    breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+    plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+    hypertexnames=true, pdfhighlight=/O,%hyperfootnotes=true,%nesting=true,%frenchlinks,%
+    urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=KUdb, %pagecolor=RoyalBlue,%
+    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+    pdftitle={\myTitle},%
+    %pdfauthor={\textcopyright\ \myName, \myProf, \myOtherProf, \myUni, \myFaculty, \myDepartment },%
+    %pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},%
+    pdfsubject={},%
+    pdfkeywords={},%
+    pdfcreator={pdfLaTeX},%
+    pdfproducer={LaTeX with hyperref and classicthesis}%
+}
+
+\let\endtitlepage\relax
+
+
+\acrodefplural{NLIN}[NLINs]{Nonlinearities}
+\acrodefplural{PSD}[PSDs]{Power Spectral Densities}
+
+% Official names of the implant
+\newcommand{\Cochlear}{Cochlear\texttrademark}
+\newcommand{\Codacs}{Codacs\texttrademark}
+
+\begin{document}
+
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+%******************************************************************
+% Frontmatter
+%******************************************************************
+\input{FrontBackMatter/Titlepage}
+%******************************************************************
+% Mainmatter
+%******************************************************************
+\vspace{-1.cm}
+\renewcommand*\contentsname{}
+%\tableofcontents
+
+\section*{Description}
+\lipsum
+
+
+\end{document}
